@@ -1,0 +1,5 @@
+import * as Icons from 'lucide-react';import {Reveal,Heading,Paras,Photo,Wave,Quote} from './ui.jsx';
+import {who,history,historyClose,historyYears,vision,mission,why,meaning,founderIntro,journey,coreMembers,wellWishers,impact,focus,nav} from '../data/content.js';
+const W='mx-auto w-full max-w-6xl px-4 sm:px-6';
+export default function CoreMembers(){return(<section id="members" className="py-16 sm:py-24"><div className={W}><Reveal><Heading>Core Members</Heading></Reveal>
+<div className="mt-12 grid grid-cols-1 min-[420px]:grid-cols-2 lg:grid-cols-4 gap-6">{coreMembers.map((m,i)=>(<Reveal key={i} delay={i*80}><figure className="group"><div className="overflow-hidden rounded-sm border-b-4 border-brand-orange"><div className="group-hover:scale-105 transition duration-500"><Photo src={m.image} alt={m.name||`Core member ${i+1} (photo to be added)`} label="Member photo to be added"/></div></div>{(m.name||m.role)&&<figcaption className="mt-3"><div className="font-semibold text-brand-deep">{m.name}</div><div className="text-sm text-brand-orange">{m.role}</div></figcaption>}</figure></Reveal>))}</div></div></section>)}

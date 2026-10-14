@@ -1,0 +1,5 @@
+import Navbar from './components/Navbar.jsx';import Hero from './components/Hero.jsx';import WhoWeAre from './components/WhoWeAre.jsx';import OurHistory from './components/OurHistory.jsx';
+import VisionMission from './components/VisionMission.jsx';import WhyWeWork from './components/WhyWeWork.jsx';import MeaningOfOgro from './components/MeaningOfOgro.jsx';
+import FounderStory from './components/FounderStory.jsx';import CoreMembers from './components/CoreMembers.jsx';import WellWishers from './components/WellWishers.jsx';
+import Impact from './components/Impact.jsx';import FocusAreas from './components/FocusAreas.jsx';import {Wave} from './components/ui.jsx';import Footer from './components/Footer.jsx';
+export default function App(){return(<><a href="#who" className="sr-only focus:not-sr-only focus:fixed focus:z-[60] focus:bg-white focus:p-3">Skip to content</a><Navbar/><main><Hero/><WhoWeAre/><div className="mx-auto max-w-6xl px-4"><Wave/></div><OurHistory/><VisionMission/><WhyWeWork/><MeaningOfOgro/><FounderStory/><CoreMembers/><WellWishers/><div className="mx-auto max-w-6xl px-4"><Wave flip/></div><Impact/><FocusAreas/></main><Footer/></>)}

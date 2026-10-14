@@ -1,0 +1,7 @@
+import {nav} from '../data/content.js';import logo from '../assets/ogro-logo.jpg';
+export default function Footer(){return(<footer className="relative overflow-hidden bg-brand-deep text-white">
+<svg aria-hidden className="absolute inset-x-0 top-0 w-full h-12 opacity-80" viewBox="0 0 1200 48" preserveAspectRatio="none"><path d="M0 30 C300 -10 700 60 1200 10" fill="none" stroke="#F47A20" strokeWidth="2" strokeDasharray="8 6"/></svg>
+<div className="relative mx-auto max-w-6xl px-4 sm:px-6 pt-20 pb-8"><div className="grid gap-10 lg:grid-cols-12 items-end">
+<div className="lg:col-span-8"><img src={logo} alt="OGRO Foundation logo" className="h-16 w-auto bg-white p-1 mb-6"/><p className="font-semibold uppercase leading-[.95] tracking-tight text-[clamp(2.4rem,9.5vw,7.5rem)] break-words">OGRO <span className="text-brand-orange">Foundation</span></p></div>
+<nav aria-label="Footer" className="lg:col-span-4 lg:border-l lg:border-brand-orange/60 lg:pl-8"><ul className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm uppercase tracking-widest">{nav.map(n=><li key={n.label}><a href={n.href} className="hover:text-brand-orange">{n.label}</a></li>)}</ul></nav></div>
+<div className="mt-12 flex items-center gap-4"><span className="h-0.5 flex-1 bg-brand-orange"/><a href="#top" className="text-xs uppercase tracking-widest hover:text-brand-orange min-h-11 grid place-items-center">Back to top ↑</a></div></div></footer>)}

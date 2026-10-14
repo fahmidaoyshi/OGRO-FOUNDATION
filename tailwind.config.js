@@ -1,0 +1,1 @@
+export default {content:['./index.html','./src/**/*.{js,jsx}'],theme:{extend:{colors:{brand:{blue:'#0F5FA8',deep:'#0A3D6B',orange:'#F47A20',soft:'#FFF4EA',mist:'#F3F7FB'}},fontFamily:{sans:['"Hind Siliguri"','"Segoe UI"','system-ui','sans-serif']}}}};

@@ -1,0 +1,9 @@
+import {useEffect,useRef,useState} from 'react';import {Reveal,Heading} from './ui.jsx';import {impact} from '../data/content.js';
+// Animates digits but always ends on the client's exact string (e.g. "1,32,200+").
+const fmt=(t,v)=>{const d=String(v).split('');let out='',started=false;const c=[...t];for(let k=c.length-1;k>=0;k--){if(/\d/.test(c[k])){out=(d.length?d.pop():'')+out}else if(d.length||!/[,]/.test(c[k])){out=c[k]+out}}return out.replace(/^,/,'')};
+function Stat({value,label,delay,span}){const r=useRef(null);const [txt,set]=useState(value);
+useEffect(()=>{const el=r.current;if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;const target=parseInt(value.replace(/\D/g,''),10);set(fmt(value,0));
+const io=new IntersectionObserver(([e])=>{if(!e.isIntersecting)return;io.disconnect();const t0=performance.now();const step=t=>{const p=Math.min((t-t0)/1600,1);set(p<1?fmt(value,Math.round(target*(1-Math.pow(1-p,3)))):value);if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)},{threshold:.4});io.observe(el);return()=>io.disconnect()},[value]);
+return <Reveal delay={delay} className={span}><div ref={r} className="border-l-2 border-brand-orange pl-6 py-2 h-full"><dd className="text-5xl sm:text-6xl lg:text-7xl font-light text-brand-orange break-words" aria-label={value}><span aria-hidden>{txt}</span></dd><dt className="mt-2 uppercase tracking-widest text-sm text-white/85">{label}</dt></div></Reveal>}
+export default function Impact(){return(<section id="impact" className="bg-brand-deep text-white py-16 sm:py-24"><div className="mx-auto w-full max-w-6xl px-4 sm:px-6"><Reveal><Heading light>Our Impact</Heading></Reveal>
+<dl className="mt-14 grid sm:grid-cols-2 lg:grid-cols-12 gap-x-10 gap-y-12">{impact.map(([n,l],i)=><Stat key={l} value={n} label={l} delay={i*80} span={["lg:col-span-5","lg:col-span-7","lg:col-span-7","lg:col-span-5"][i]}/>)}</dl></div></section>)}
